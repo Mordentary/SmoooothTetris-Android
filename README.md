@@ -9,7 +9,7 @@ Unusual implementation of tetris!!! Made with Android Studio.
 
 - **Disintegrating blocks**: Experience the thrill of blocks breaking apart as you clear lines in this unique take on the classic Tetris game.
 
-- **Physically based** acceleration: Watch as blocks fall with realistic acceleration, adding an extra layer of challenge to the gameplay.
+- **Physically based acceleration**: Watch as blocks fall with realistic acceleration, adding an extra layer of challenge to the gameplay.
 
 - **Smooth actions**: Enjoy fluid and seamless movements of all blocks.
 
