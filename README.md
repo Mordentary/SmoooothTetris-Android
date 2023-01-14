@@ -19,8 +19,8 @@ Unusual implementation of tetris!!! Made with Android Studio.
 
 Game:
 
-![](/Gifs/Tetris2.gif)
+![](/Gifs/Tetris1.gif)
 
 Menu:
 
-![](/Gifs/Tetris1.gif)
+![](/Gifs/Tetris2.gif)
