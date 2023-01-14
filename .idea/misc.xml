@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Sirius/AndroidStudioProjects/TestGame/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3140625" />
+        <entry key="..\:/Users/Sirius/AndroidStudioProjects/TestGame/app/src/main/res/drawable/animatiom_unloader.xml" value="0.3026041666666667" />
+        <entry key="..\:/Users/Sirius/AndroidStudioProjects/TestGame/app/src/main/res/drawable/animation_loader.xml" value="0.17" />
+        <entry key="..\:/Users/Sirius/AndroidStudioProjects/TestGame/app/src/main/res/drawable/animationloader.xml" value="0.67" />
+        <entry key="..\:/Users/Sirius/AndroidStudioProjects/TestGame/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3140625" />
+        <entry key="..\:/Users/Sirius/AndroidStudioProjects/TestGame/app/src/main/res/layout/about_activity.xml" value="0.33" />
+        <entry key="..\:/Users/Sirius/AndroidStudioProjects/TestGame/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Sirius/AndroidStudioProjects/TestGame/app/src/main/res/layout/activity_top_rating.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Sirius/AndroidStudioProjects/TestGame/app/src/main/res/layout/drawer_layout.xml" value="0.28020833333333334" />
+        <entry key="..\:/Users/Sirius/AndroidStudioProjects/TestGame/app/src/main/res/layout/game_layout.xml" value="0.28177083333333336" />
+        <entry key="..\:/Users/Sirius/AndroidStudioProjects/TestGame/app/src/main/res/layout/game_over_activity.xml" value="0.3494791666666667" />
+        <entry key="..\:/Users/Sirius/AndroidStudioProjects/TestGame/app/src/main/res/layout/help_activity.xml" value="0.3203125" />
+        <entry key="..\:/Users/Sirius/AndroidStudioProjects/TestGame/app/src/main/res/layout/toolbar.xml" value="0.3374094202898551" />
+        <entry key="..\:/Users/Sirius/AndroidStudioProjects/TestGame/app/src/main/res/menu/dots_menu.xml" value="0.3203125" />
+        <entry key="..\:/Users/Sirius/AndroidStudioProjects/TestGame/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3828125" />
+      </map>
+    </option>
+  </component>
+  <component name="JavadocGenerationManager">
+    <option name="OUTPUT_DIRECTORY" value="$USER_HOME$/Desktop/JavaDoc" />
+    <option name="OPTION_SCOPE" value="public" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

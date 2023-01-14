@@ -1,0 +1,499 @@
+@startuml
+class com.e.testgame.GameEngine.Physics2D.Forces.ForceRegistry {
+- List<ForceRegistration> registry
++ <<Create>> ForceRegistry()
++ void add(Rigidbody2D,ForceGenerator)
++ void remove(Rigidbody2D,ForceGenerator)
++ void clear()
++ void updateForces(float)
+}
+class com.e.testgame.RadioPlayService {
+~ MediaPlayer mediaPlayer
++ void onCreate()
++ void onPrepared(MediaPlayer)
++ void onBufferingUpdate(MediaPlayer,int)
++ void onCompletion(MediaPlayer)
++ boolean onInfo(MediaPlayer,int,int)
++ void onSeekComplete(MediaPlayer)
++ boolean onError(MediaPlayer,int,int)
++ IBinder onBind(Intent)
++ int onStartCommand(Intent,int,int)
++ void onDestroy()
+}
+class com.e.testgame.ExampleInstrumentedTest {
++ void useAppContext()
+}
+class com.e.testgame.GameClasses.Foreground {
+- ArrayList<Sprite> sprites
+- GameView gameView
+- Grid grid
+- AABB floor
++ <<Create>> Foreground(GameView,Grid,AABB)
+- void loadSprites()
++ void draw(Canvas)
+}
+class com.e.testgame.MathClasses.Point {
+- float x
+- float y
++ <<Create>> Point(float,float)
++ void subtractX(float)
++ void addX(float)
++ float getX()
++ float getY()
++ void setX(float)
++ void setY(float)
++ float Get_Distance(Point)
+}
+class com.e.testgame.MathClasses.AABB {
++ Vector2f min
++ Rigidbody2D _rigidBody
++ Side left
++ int countOfIntersectsSide
++ List<AABB> listOfIntersectsRect
++ <<Create>> AABB(Vector2f,Vector2f)
++ void update()
++ void draw(Canvas,Paint)
++ void printSideStatus()
+}
+class com.e.testgame.MathClasses.AABB.Side {
+- boolean Intersects
++ boolean isIntersects()
++ void setIntersects(boolean)
+}
+class com.e.testgame.TinyDB {
++ <<Create>> TinyDB(Context)
++ void onCreate(SQLiteDatabase)
++ void onUpgrade(SQLiteDatabase,int,int)
++ Boolean insertUserData(String)
++ boolean Clean()
++ String findScoreById()
+}
+class com.e.testgame.MathClasses.Vector2f {
++ float x
++ float y
++ <<Create>> Vector2f(float,float)
++ <<Create>> Vector2f(Vector2f)
++ <<Create>> Vector2f()
++ float getX()
++ float getY()
++ void set(Vector2f)
++ Vector2f mul(Vector2f)
++ Vector2f mul(float)
++ Vector2f div(Vector2f)
++ Vector2f sub(Vector2f)
++ Vector2f add(Vector2f)
++ Vector2f add(float,float)
++ Vector2f sub(float,float)
++ Vector2f negate()
++ Vector2f zero()
++ float distance(Vector2f)
++ float length()
++ float dot(Vector2f)
++ Vector2f normalize(float)
++ {static} float invsqrt(float)
++ Vector2f normalize(float,Vector2f)
++ String toString()
+}
+interface com.e.testgame.GameEngine.Interfaces.IGameLogic {
+~ void init(GameView)
+~ void update(SurfaceView,float)
+~ void draw(Canvas)
+}
+class com.e.testgame.GameClasses.Sprite {
+- Vector2f position
+- Vector2f velocity
+- Vector2f origin
+- Vector2f[] startingPositions
+- Bitmap bmp
+- Sprite rightCopy
+- Sprite leftCopy
+- boolean parallaxEffect
+- Grid grid
++ <<Create>> Sprite(Bitmap,Vector2f,Vector2f,Vector2f,boolean,boolean,Grid)
++ Vector2f getPosition()
++ void setPosition(Vector2f)
++ Vector2f getOrigin()
++ void setOrigin(Vector2f)
++ Vector2f[] getStartingPositions()
++ void update()
++ void parallaxEffectInit()
+- void parallaxEffect()
+- void resetToStartingPoint()
++ void draw(Canvas)
+}
+class com.e.testgame.ExampleUnitTest {
++ void addition_isCorrect()
+}
+class com.e.testgame.GameClasses.src.Figure {
+- OBB[] figure
+- char name
+- Point center
++ boolean onBorderCheckR
+- boolean blockBusyMoving
+- boolean blockBusyRotation
+- boolean blockBusyCorrection
+- boolean isGrounded
+- int color
+- boolean isFigureDamaged
++ <<Create>> Figure(OBB,Physics2D,char)
+- void addGravity(Physics2D)
+- void generateFigure()
+- void checkFigureOnBorder()
++ char getName()
++ boolean isBlockBusyMoving()
++ void setBlockBusyMoving(boolean)
++ boolean isBlockBusyRotation()
++ void setBlockBusyRotation(boolean)
++ boolean isBlockBusyCorrection()
++ void setBlockBusyCorrection(boolean)
++ void printNumOfColumn()
++ void printBlocksGrounded()
++ void printCenters()
++ void printNumOfRow()
++ void printBordersL()
++ void printBordersR()
++ void figureRotate(String)
++ boolean isGrounded()
++ void setGrounded(boolean)
++ Point getCenter()
++ boolean isFigureDamaged()
++ void setFigureDamaged(boolean)
++ OBB[] getFigureBlocks()
++ void figureTranslate(String)
++ boolean preventFigureRotation(List<Figure>,String)
++ boolean isFigureRotating()
++ boolean preventFigureTranslation(List<Figure>,String)
++ void update(ArrayList<Figure>,AABB)
+- void correctionOnGround()
++ void correctPosition(String)
+- void setGroundingOfFigure()
+- void checkCollision(ArrayList<Figure>,AABB)
+- void updateCenter(float)
++ void draw(Canvas)
+}
+class com.e.testgame.MainActivity {
+- ImageView ivLoader
+- boolean isMusicPlaying
+- String strLink
+- Intent serviceIntent
+# void onCreate(Bundle)
+- void playGif()
++ void startGame(View)
++ void checkRating(View)
++ void startGameOverMenu()
++ boolean onCreateOptionsMenu(Menu)
++ boolean onOptionsItemSelected(MenuItem)
+- void stopAudio()
+- void playAudio()
+}
+class com.e.testgame.GameEngine.MainThread {
+- SurfaceHolder surfaceHolder
+- GameView gameView
+- boolean running
+- {static} Canvas canvas
+- int targetFPS
++ <<Create>> MainThread(SurfaceHolder,GameView)
++ void setRunning(boolean)
++ void run()
+}
+class com.e.testgame.HelpActivity {
+# void onCreate(Bundle)
+}
+class com.e.testgame.MathClasses.MathHelper {
+- Random rnd
++ {static} void rotate(Vector2f,float,Vector2f)
++ {static} char randomCharForFigure()
++ {static} int randomColor()
+}
+class com.e.testgame.GameEngine.GameView {
+- MainThread thread
+- IGameLogic gameLogic
+- Canvas canvas
+- MainActivity mainAcivity
+~ boolean protection
++ <<Create>> GameView(MainActivity)
++ void surfaceChanged(SurfaceHolder,int,int,int)
++ void surfaceCreated(SurfaceHolder)
++ void surfaceDestroyed(SurfaceHolder)
++ void update(float)
++ void draw(Canvas)
++ Canvas getCanvas()
++ boolean onTouch(View,MotionEvent)
+}
+class com.e.testgame.AboutActivity {
+# void onCreate(Bundle)
+}
+class com.e.testgame.MathClasses.OBB {
+- Vector2f min
+- Vector2f resultVelocity
+- Figure ownerFigure
+- Point center
+- float rotation
+- boolean onBorderLeft
+- boolean isGrounded
+- boolean needCorrectionM
+- boolean blockBusyMoving
+- Vector2f[] vertices
+- int numColumn
+- int numRow
+- int maxNumOfColumn
++ int height
++ Rigidbody2D _rigidBody
++ String rotateSide
++ float widthFrag
++ <<Create>> OBB(Vector2f,Vector2f,float)
++ <<Create>> OBB(Point,int,int,float)
++ <<Create>> OBB(int,int,float,float,int,float)
+- void verticesRotation(float)
+- {static} void rotateIndices(Vector2f,Point,float)
++ boolean preventTranslation(List<Figure>,String)
++ boolean preventRotation(List<Figure>,String)
++ void correctPositionOBB(String)
+- Point getRotatedFuturePoint(String)
+- void positionAdjustment(float)
+- void verticesRotationAboutCenter(float,Point)
+- void updateColumn()
+- void updateRow()
+- void rotateToSide(int,Point)
++ Figure getOwnerFigure()
++ void setOwnerFigure(Figure)
++ boolean isBlockBusyMoving()
++ void setBlockBusyMoving(boolean)
++ boolean isGrounded()
++ void setGrounded(boolean)
++ boolean isBlockBusyRotation()
++ void setBlockBusyRotation(boolean)
++ boolean isBlockBusyCorrection()
++ void setBlockBusyCorrection(boolean)
++ boolean isOnBorderLeft()
++ void setOnBorderLeft(boolean)
++ void setVertices(Vector2f[])
++ boolean isOnBorderRight()
++ void setOnBorderRight(boolean)
++ Vector2f getResultVelocity()
++ int getNumRow()
++ int getMaxNumOfColumn()
++ void setNumRow(int)
++ Point getCenter()
++ float getRotation()
++ int getNumColumn()
++ void setNumColumn(int)
++ void generateVertices()
++ Vector2f[] getVertices()
+- void translateToSide(float)
+- void onBorderCheck()
+- void verticesTranslation(float)
+- void positionCorrection()
++ void correctionOnGroundOBB()
++ void turnOffGravity()
++ void update(Point)
+- void applyGravity()
+- void updateCenter()
++ void draw(Canvas,int)
+}
+interface com.e.testgame.GameEngine.Physics2D.Forces.ForceGenerator {
+~ void updateForce(Rigidbody2D,double)
+}
+class com.e.testgame.TopRating {
+- ListView lv
+- DBHelper _dbHelper
+- ArrayAdapter arrAdapter
+# void onCreate(Bundle)
+- void ShowTopPlayersOnListView(DBHelper)
+}
+class com.e.testgame.GameClasses.MainGame {
++ UI _ui
+- Background _background
+- Foreground _foreground
+- TouchHandler _touch
+- Paint _paint
+- Physics2D _physics2D
+- TinyDB _tinyDB
+- Vector2f _gravity
+- Rect _rect
+- AABB floor
+- OBB ref
+- int surfHeight
+- Grid _grid
+- Figure currentFigure
+- ArrayList<Figure> figures
++ void init(GameView)
++ void update(SurfaceView,float)
++ void draw(Canvas)
+}
+class com.e.testgame.GameEngine.Physics2D.Physics2D {
+- ForceRegistry forceRegistry
+- List<Rigidbody2D> rigidbodies
+- Gravity2D gravity
+- float physicsTime
+- float physicsTimeStep
+- float fixedUpdate
++ <<Create>> Physics2D(float,Vector2f)
++ void update(float)
++ void fixedUpdate()
++ void removeForcesFromObjectWhileCollision(AABB)
++ void removeForcesFromOBB(OBB)
++ void addRigidbody(Rigidbody2D)
++ Gravity2D getGravity()
+}
+class com.e.testgame.RestartMenuActivity {
+- Button btn1
+- TextView tv
+- DBHelper _dbHelper
+- TinyDB _tinyDB
+- EditText editText
+# void onCreate(Bundle)
+}
+class com.e.testgame.GameClasses.Grid {
+- int screenHeight
+- float screenWidthSeg
+- float screenHeightSeg
+- int maxNumOfColumn
+- int maxNumOfRow
++ <<Create>> Grid(int,int,int)
++ int getMaxNumOfColumn()
++ int getMaxNumOfRow()
++ float getScreenHeightSeg()
++ float getWidthSeg()
++ int getScreenHeight()
++ int getScreenWidth()
++ void draw(Canvas,Paint)
+}
+class com.e.testgame.GameEngine.TouchHandler {
+- Vector2f position
+- Grid grid
++ <<Create>> TouchHandler(SurfaceView,Grid)
++ Vector2f getPosition()
++ void setPosition(Vector2f)
++ int CheckPartScreen()
++ boolean onTouch(View,MotionEvent)
+}
+class com.e.testgame.GameClasses.PlayerStatistic {
+- String score
+- String name
++ <<Create>> PlayerStatistic(String,String)
++ String getScore()
++ void setScore(String)
++ String getName()
++ void setName(String)
++ String toString()
+}
+class com.e.testgame.GameEngine.Physics2D.Rigidbody.Rigidbody2D {
+- Vector2f resultVelocity
+- float _rotation
+- float mass
+- float inverseMass
+- Vector2f forceAccum
+- Vector2f linearVelocity
+- boolean fixedRotation
++ Vector2f getResultVelocity()
++ void physicsUpdate(float)
++ void clearAccumulators()
++ void setTransform(Vector2f,float)
++ void setTransform(Vector2f)
++ float getRotation()
++ float getMass()
++ void zeroForcesOnSide(String)
++ void setMass(float)
++ void addForce(Vector2f)
+}
+class com.e.testgame.GameClasses.IntersectionManager {
++ {static} boolean AABBAndOOB(AABB,OBB)
++ {static} boolean AABBAndOOBVer2(AABB,OBB)
++ {static} boolean OBBAndOOB(OBB,OBB)
++ {static} boolean OBBAndOOBVer2(OBB,OBB)
+- {static} void positionAdjustmentOBB(OBB,OBB)
+- {static} void positionAdjustmentOBBVer2(OBB,OBB)
+- {static} float findBottomEdge(OBB)
+- {static} float findTopEdge(OBB)
+- {static} void positionAdjustmentFloor(AABB,OBB)
+- {static} void positionAdjustmentFloorVer2(AABB,OBB)
+- {static} boolean overlapOnAxis(AABB,OBB,Vector2f)
+- {static} boolean overlapOnAxis(OBB,OBB,Vector2f)
+- {static} Vector2f getInterval(AABB,Vector2f)
+- {static} Vector2f getInterval(OBB,Vector2f)
+}
+class com.e.testgame.GameClasses.Background {
+- ArrayList<Sprite> sprites
+- GameView gameView
+- Grid grid
++ <<Create>> Background(GameView,Grid)
+- void loadSprites()
+- void initAllParallaxFX()
++ void update()
++ void draw(Canvas)
+}
+class com.e.testgame.DBHelper {
++ <<Create>> DBHelper(Context)
++ void onCreate(SQLiteDatabase)
++ void onUpgrade(SQLiteDatabase,int,int)
++ Boolean insertUserData(String,String)
++ List<PlayerStatistic> getEveryone()
++ Cursor getData()
+}
+class com.e.testgame.GameClasses.UI {
+- int numOfFigure
+- Paint paint
+- boolean gameOver
+- TinyDB _tinyDB
+- GameView view
++ int finalScore
++ <<Create>> UI(GameView,TinyDB)
++ boolean isGameOver()
+- void checkOnUpperLimit(ArrayList<Figure>)
++ void draw(ArrayList<Figure>,Canvas,Grid)
+- void clearAllFigure(ArrayList<Figure>)
+- void setGameOver(ArrayList<Figure>,Canvas,Grid)
++ void scoring(ArrayList<Figure>,Grid)
++ void updateNumOfFigure(int)
+}
+class com.e.testgame.GameEngine.Physics2D.Forces.Gravity2D {
+- Vector2f gravity
++ <<Create>> Gravity2D(Vector2f)
++ void updateForce(Rigidbody2D,double)
+}
+class com.e.testgame.GameClasses.src.BlockDeleter {
++ {static} int findFullRow(ArrayList<Figure>,Grid)
+- {static} void turnOnGravity(ArrayList<Figure>,int)
++ {static} void deleteBlocks(ArrayList<Figure>,Grid)
+- {static} void cleanNullFigure(ArrayList<Figure>)
+}
+class com.e.testgame.BuildConfig {
++ {static} boolean DEBUG
++ {static} String APPLICATION_ID
++ {static} String BUILD_TYPE
++ {static} int VERSION_CODE
++ {static} String VERSION_NAME
+}
+class com.e.testgame.GameEngine.Physics2D.Forces.ForceRegistration {
++ ForceGenerator _forceGen
++ Rigidbody2D _rigidBody
++ <<Create>> ForceRegistration(ForceGenerator,Rigidbody2D)
+}
+
+
+com.e.testgame.OnCompletionListener <|.. com.e.testgame.RadioPlayService
+com.e.testgame.OnPreparedListener <|.. com.e.testgame.RadioPlayService
+com.e.testgame.OnSeekCompleteListener <|.. com.e.testgame.RadioPlayService
+com.e.testgame.OnInfoListener <|.. com.e.testgame.RadioPlayService
+com.e.testgame.OnBufferingUpdateListener <|.. com.e.testgame.RadioPlayService
+com.e.testgame.OnErrorListener <|.. com.e.testgame.RadioPlayService
+android.app.Service <|-- com.e.testgame.RadioPlayService
+com.e.testgame.GameEngine.Physics2D.Rigidbody.Rigidbody2D <|-- com.e.testgame.MathClasses.AABB
+com.e.testgame.MathClasses.AABB +.. com.e.testgame.MathClasses.AABB.Side
+android.database.sqlite.SQLiteOpenHelper <|-- com.e.testgame.TinyDB
+androidx.appcompat.app.AppCompatActivity <|-- com.e.testgame.MainActivity
+com.e.testgame.GameEngine.Thread <|-- com.e.testgame.GameEngine.MainThread
+androidx.appcompat.app.AppCompatActivity <|-- com.e.testgame.HelpActivity
+com.e.testgame.GameEngine.Callback <|.. com.e.testgame.GameEngine.GameView
+com.e.testgame.GameEngine.OnTouchListener <|.. com.e.testgame.GameEngine.GameView
+android.view.SurfaceView <|-- com.e.testgame.GameEngine.GameView
+androidx.appcompat.app.AppCompatActivity <|-- com.e.testgame.AboutActivity
+com.e.testgame.GameEngine.Physics2D.Rigidbody.Rigidbody2D <|-- com.e.testgame.MathClasses.OBB
+androidx.appcompat.app.AppCompatActivity <|-- com.e.testgame.TopRating
+com.e.testgame.GameEngine.Interfaces.IGameLogic <|.. com.e.testgame.GameClasses.MainGame
+androidx.appcompat.app.AppCompatActivity <|-- com.e.testgame.RestartMenuActivity
+com.e.testgame.GameEngine.OnTouchListener <|.. com.e.testgame.GameEngine.TouchHandler
+android.database.sqlite.SQLiteOpenHelper <|-- com.e.testgame.DBHelper
+com.e.testgame.GameEngine.Physics2D.Forces.ForceGenerator <|.. com.e.testgame.GameEngine.Physics2D.Forces.Gravity2D
+@enduml
