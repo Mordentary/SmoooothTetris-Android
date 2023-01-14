@@ -140,13 +140,10 @@ public class Sprite {
 
     public void draw(Canvas canvas) {
 
-        if (parallaxEffect && stretchToScreen) {
-            //if(rightCopy.getPosition().x < grid.getScreenWidth() &&  rightCopy.getPosition().x > 0)
-            //rightCopy.draw(canvas);
-
-            //if(leftCopy.getPosition().x < grid.getScreenWidth() &&  leftCopy.getPosition().x > 0)
-                //leftCopy.draw(canvas);
-
+        if (parallaxEffect && stretchToScreen)
+        {
+            rightCopy.draw(canvas);
+            leftCopy.draw(canvas);
         }
 
         canvas.drawBitmap(bmp, null,  new Rect((int) origin.getX(), (int) origin.getY(), (int) position.getX(), (int) position.getY()), null);
